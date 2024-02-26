@@ -1,0 +1,4 @@
+<div class="p-4">
+    <app-clickable-list [items]="['CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EDUCATION', 'CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EMPLOYMENT AGENCIES', 'CAREER GUIDANCE EDUCATION INSTITUTIONS REPORTING FORM']" (itemClick)="openModal($event)"></app-clickable-list>
+    <app-cgfp-education-form *ngIf="isModalOpen" (formSubmit)="handleFormSubmit($event)"></app-cgfp-education-form>
+</div>

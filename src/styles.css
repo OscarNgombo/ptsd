@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Medianburner';
+    src: url('assets/Fonts/median30.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.navSpan {
+    padding: 5px;
+    font-family: Medianburner;
+    color: rgba(0, 0, 0, 0.733);
+    font-size: small;
+}

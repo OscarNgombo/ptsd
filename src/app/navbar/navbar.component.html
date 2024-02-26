@@ -1,0 +1,52 @@
+<!-- <p>{{receivedString}}</p> -->
+<nav class="bg-white">
+    <nav class="bg-[#fff]">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="flex flex-shrink-0 items-center" dir="ltr">
+                <a href="/">
+                    <img class="h-auto w-auto" src="assets/images/banner2.png" alt="logo" aria-label="PTSD" />
+                    <br />
+                    <span class="navSpan">
+            {{ receivedString }}
+          </span>
+                </a>
+            </div>
+        </div>
+        <div class="mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
+            <div class="hidden md:flex space-x-4 py-5">
+                <a href="#" (click)="onNavigateToHome()" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                <a href="#" (click)="onNavigateToCGFP()" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">CGFP</a>
+                <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">CGCP</a>
+                <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">NTID</a>
+                <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
+            </div>
+            <br>
+            <div class="md:hidden flex items-center">
+                <button class="relative inline-flex items-center justify-center rounded-md p-2 menu-button" (click)="toggleMenu()">
+        <!-- Mobile menu button-->
+        <svg
+          class="h-6 w-6 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+            </div>
+            <div class="hidden mobile-menu" [ngClass]="{ hidden: isMenuHidden }">
+                <div class="py-2">
+                    <a href="#" class="bg-blue-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
+                    <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">CGFP</a>
+                    <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">CGCP</a>
+                    <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">NTID</a>
+                    <a href="#" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>

@@ -1,0 +1,146 @@
+<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <!-- Background overlay, show/hide based on modal state. Entering: "ease-out duration-300" Leaving: "ease-in duration-200" -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden=""></div>
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <!-- Modal panel, show/hide based on modal state. Entering: "ease-out duration-300" Leaving: "ease-in duration-200" -->
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <form class="p-6">
+                <!-- Section 1: Career Guidance Focal Points Reporting Form - Education -->
+                <h2 class="text-xl font-bold mb-4">CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EDUCATION</h2>
+                <p class="text-sm text-gray-700 mb-4">The role of the Career Guidance Focal Point (CGFP) is to monitor and report on the progress made in regard to the establishment and operationalization of the Office of Career Services. To enable the CGFP to report on this progress, the
+                    State Department for Labour and Skills Development has automated the reporting form (see below). Please use this form to fill in the quarterly and annual progress reports for your Department/County/Agency.</p>
+                <hr>
+                <!-- First Section -->
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Name of the Career Guidance Focal Point</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">Region within which the Career Guidance Focal Point is reporting</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Career Guidance Focal Point Email</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">Career Guidance Focal Point Phone Number</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <hr>
+                <!-- Section 2: -->
+                <h2 class="text-xl font-bold mb-4">EDUCATION INSTITUTIONS</h2>
+                <p class="text-sm text-gray-700 mb-4">Both Public and Private</p>
+                <hr>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3">Institution</th>
+                                <th class="px-6 py-3">Public</th>
+                                <th class="px-6 py-3">Private</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let institution of institutions">
+                                <td class="px-6 py-4">{{institution.name}}</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" [id]="'public-' + institution.id" [name]="'public-' + institution.id" [value]="institution.id" class="form-checkbox text-indigo-600 h-5 w-5">
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" [id]="'private-' + institution.id" [name]="'private-' + institution.id" [value]="institution.id" class="form-checkbox text-indigo-600 h-5 w-5">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Total No. of Institutions</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">Total No. of Learners</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Total No. of Institutions</label>
+                    <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
+                        (Refers to a teacher/trainer/tutor/lecturer teaching career education)
+                    </p>
+                    <br>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career counsellors</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career information specialists</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">No. of Office of Career Services (OCS) established</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">No. of learners that accessed career education</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">No. of learners that accessed career counselling services</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">No. of learners that accessed career guidance information</label>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section2" class="block text-gray-700 text-sm font-bold mb-2">No. of staff trained on career guidance</label>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Total No. of male learners</label>
+                    <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
+                        (How many male learners that accessed different services on career guidance across all the institutions)
+                    </p>
+                    <br>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">Total No. of female learners</label>
+                    <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
+                        (How many female learners that accessed different services on career guidance across all the institutions)
+                    </p>
+                    <br>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">No. of male learners with disabilities</label>
+                    <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
+                        (How many male learners with disability accessed different services on career guidance across all the institutions)
+                    </p>
+                    <br>
+                    <input type="text" id="section1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section1Data" required>
+                </div>
+                <div class="mb-4">
+                    <label for="section1" class="block text-gray-700 text-sm font-bold mb-2">No. of male learners with disabilities</label>
+                    <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
+                        (How many male learners with disability accessed different services on career guidance across all the institutions)
+                    </p>
+                    <br>
+                    <input type="text" id="section2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" [(ngModel)]="section2Data" required>
+                </div>
+                <!-- Button outside the sections -->
+                <div class="text-center mb-4">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

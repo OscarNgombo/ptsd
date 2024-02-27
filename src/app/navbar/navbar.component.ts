@@ -18,6 +18,7 @@ export class NavbarComponent {
   // event emmitter that will be triggered when button is clicked
   @Output() navigateToHome: EventEmitter<any> = new EventEmitter();
   @Output() navigateToCGFP: EventEmitter<any> = new EventEmitter();
+  @Output() navigateToCGCP: EventEmitter<any> = new EventEmitter();
 
   toggleMenu(){
     this.isMenuHidden = !this.isMenuHidden;
@@ -29,5 +30,8 @@ export class NavbarComponent {
 
   onNavigateToCGFP(){
     this.navigateToCGFP.emit();
+  }
+  onNavigateToCGCP(){
+    this.navigateToCGCP.emit();
   }
 }

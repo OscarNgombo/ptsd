@@ -24,4 +24,7 @@ export class AppComponent {
     this.router.navigate(['/cfgp']);
 
   }
+  navigateToCGCPage(){
+    this.router.navigate(['/cgcp']);
+  }
 }

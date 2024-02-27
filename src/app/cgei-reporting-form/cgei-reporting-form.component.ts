@@ -1,15 +1,14 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-cgfp-education-form',
+  selector: 'app-cgei-reporting-form',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf],
-  templateUrl: './cgfp-education-form.component.html',
-  styleUrl: './cgfp-education-form.component.css',
+  imports: [NgIf,NgFor],
+  templateUrl: './cgei-reporting-form.component.html',
+  styleUrl: './cgei-reporting-form.component.css'
 })
-export class CgfpEducationFormComponent {
+export class CgeiReportingFormComponent {
   selectedInstitutionId: number | null = null;
   @Output() formSubmit: EventEmitter<string> = new EventEmitter();
 
@@ -31,5 +30,4 @@ export class CgfpEducationFormComponent {
     this.formSubmit.emit(this.formData);
     this.formData = '';
   }
-
 }

@@ -15,16 +15,4 @@ export class AppComponent {
 
   title = 'ptsd';
   parentString = 'DIRECTORATE FOR POST TRAINING AND SKILLS DEVELOPMENT';
-
-  navigateToHomePage(){
-    this.router.navigate(['/home']);
-  }
-
-  navigateToCGFPage(){
-    this.router.navigate(['/cfgp']);
-
-  }
-  navigateToCGCPage(){
-    this.router.navigate(['/cgcp']);
-  }
 }

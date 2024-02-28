@@ -1,0 +1,206 @@
+<div class="flex items-center justify-center min-h-screen bg-white-100 pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="container mx-auto p-6 bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
+        <div class="container mx-auto p-6 inline-block align-bottom bg-gray-100 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-m sm:w-full">
+            <h2 class="text-xl font-bold mb-4">
+                NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME EVALUATION FORM
+            </h2>
+            <p class="text-sm text-gray-700 mb-4">
+                The aim of the Training Evaluation Form is to measure your satisfaction with the training programme offered by the Directorate of Post Training and Skills Development. Kindly fill in the form. This Evaluation Form is designed to receive feedback from
+                NOESDP participants. The information shared will only be used for the NOESDP Program Evaluation and Impact assessment and will be treated with utmost Confidentiality. It is therefore imperative that it is only filled by Participants of
+                the NOESDP Training. We would like to encourage you, to give your honest and transparent views and opinions. Please feel free to include as much feedback as possible!
+            </p>
+            <hr />
+            <form>
+                <!-- First Section -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Full name (As indicated in your ID)</label>
+                    <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="name" />
+                </div>
+                <div class="mb-4">
+                    <div class="flex items-center">
+                        <input type="radio" id="male" name="gender" value="male" class="h-5 w-5 text-indigo-600">
+                        <label for="male" class="ml-2">Male</label>
+                    </div>
+                    <br>
+                    <div class="flex items-center">
+                        <input type="radio" id="female" name="gender" value="female" class="h-5 w-5 text-indigo-600">
+                        <label for="female" class="ml-2">Female</label>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">
+                Date of Birth
+              </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob" type="date" name="dob" autocomplete="bday">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Please indicate your email address:
+              </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="example@example.com" name="email" autocomplete="off">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="disability">
+                Do you have a disability?
+              </label>
+                    <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="disability" name="disability">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="county">
+                What is your current County of Residence?
+              </label>
+                    <select [(ngModel)]="selectedCounty" class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="county" name="county">
+                <option value="" disabled selected>Select your county</option>
+                <option *ngFor="let county of counties" [value]="county">{{ county }}</option>
+              </select>
+                </div>
+                <div class="mb-4">
+                    <label for="subcounty" class="block text-gray-700 text-sm font-bold mb-2">What is your current Sub-County of Residence</label>
+                    <input type="text" id="subcounty" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                </div>
+                <div class="mb-4">
+                    <label for="profession" class="block text-gray-700 text-sm font-bold mb-2">What is your Profession or Area of specialization</label>
+                    <input type="text" id="profession" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="(e.g. Teaching, Computer Science, Program Management, Hospitality, Plumber, Farmer) etc:"
+                        required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="onlineWork">
+                Have you created an Online Work Account?
+                </label>
+                    <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="onlineWork" name="online">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ifYs">
+                If your response to the above is Yes, at what stage did you create the Online Work Account?
+              </label>
+                    <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="ifYs" name="ifYesToOnline">
+                <option value="bt">Before the Training</option>
+                <option value="dt">During the Training</option>
+                <option value="at">After the Training</option>
+              </select>
+                </div>
+                <div class="mb-4">
+                    <label for="onlinePlatform" class="block text-gray-700 text-sm font-bold mb-2">On which platform(s) did you create an Online Work Account?</label>
+                    <input type="text" id="onlinePlatform" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" optional/>
+                </div>
+                <hr />
+                <!-- Section 2: -->
+                <h2 class="text-xl font-bold mb-4">Part A: Overall satisfaction</h2>
+                <p class="text-sm text-gray-700 mb-4">Please select suitable option to the items indicated in this section. </p>
+                <hr />
+                <div class="mb-4">
+                    <p class="text-gray-700 text-sm font-bold mb-2">Overall how satisfied were with the training programme?</p>
+                    <div class="mt-2">
+                        <input type="radio" id="verySatisfied" name="satisfaction" value="verySatisfied" class="mr-2 leading-tight">
+                        <label for="verySatisfied" class="text-sm">Very Satisfied</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="radio" id="satisfied" name="satisfaction" value="satisfied" class="mr-2 leading-tight">
+                        <label for="satisfied" class="text-sm">Satisfied</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="radio" id="neutral" name="satisfaction" value="neutral" class="mr-2 leading-tight">
+                        <label for="neutral" class="text-sm">Neutral</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied" class="mr-2 leading-tight">
+                        <label for="dissatisfied" class="text-sm">Dissatisfied</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="radio" id="veryDissatisfied" name="satisfaction" value="veryDissatisfied" class="mr-2 leading-tight">
+                        <label for="veryDissatisfied" class="text-sm">Very Dissatisfied</label>
+                    </div>
+                </div>
+                <br>
+                <!-- Section 3: -->
+                <h2 class="text-xl font-bold mb-4">Part B: Satisfaction with training programme in diverse areas</h2>
+                <p class="text-sm text-gray-700 mb-4">Please select suitable option to the items indicated in this section. </p>
+                <hr />
+                <div class="mb-4">
+                    <p class="text-gray-700 text-sm font-bold mb-2">Overall, how satisfied were you with the quality of the following:</p>
+                    <div class="overflow-x-auto">
+                        <table class="border-collapse w-full">
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-4 border">Question</th>
+                                    <th class="py-2 px-4 border">Very Satisfied</th>
+                                    <th class="py-2 px-4 border">Satisfied</th>
+                                    <th class="py-2 px-4 border">Neutral</th>
+                                    <th class="py-2 px-4 border">Dissatisfied</th>
+                                    <th class="py-2 px-4 border">Very Dissatisfied</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border">Training Method</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingMethod" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingMethod" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingMethod" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingMethod" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingMethod" value="veryDissatisfied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">Trainer content/materials</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainerKnowledge" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainerKnowledge" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainerKnowledge" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainerKnowledge" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainerKnowledge" value="veryDissatisfied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">Training coordination</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingCoordination" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingCoordination" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingCoordination" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingCoordination" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="trainingCoordination" value="veryDissatisfied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">The facilitator was knowledgeable about the topic</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="facilitator" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="facilitator" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="facilitator" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="facilitator" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="facilitator" value="veryDissatisfied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">The facilitator encouraged active participation</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="activeParticipation" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="activeParticipation" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="activeParticipation" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="activeParticipation" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="activeParticipation" value="veryDissatisfied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">The facilitator answered questions clearly</td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="questionClear" value="verySatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="questionClear" value="satisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="questionClear" value="neutral"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="questionClear" value="dissatisfied"></td>
+                                    <td class="py-2 px-4 border text-center"><input type="radio" name="questionClear" value="veryDissatisfied"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="improvement" class="block text-gray-700 text-sm font-bold mb-2">Please indicate how this training programme could be improved:</label>
+                    <input type="text" id="improvement" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+                </div>
+                <br>
+                <!-- Button outside the sections -->
+                <div class="text-center mb-4">
+                    <button (click)="onFormSubmit()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Save
+              </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

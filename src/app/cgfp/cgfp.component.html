@@ -1,4 +1,17 @@
 <div class="p-4">
+    <div class="bg-white shadow-md rounded-md p-4">
+        <h1 class="p-2 mb-2 mt-0 text-3xl font-medium leading-tight text-primary text-center sm:text-left">
+            <Strong>Career Guidance Focal Point (CGFP)</Strong>, This is a central location or point of contact for individuals seeking career guidance, counseling, and support services. These services may include resume building, job search strategies, interview preparation, career assessment testing,
+            and more.
+        </h1>
+        <h3 class="text-lg text-gray-600 mt-4 text-green-500">
+            <i>            We are <strong>Empowering</strong> Individuals to Achieve Their
+  <Strong>Career Goals</Strong> by helping individuals identify their
+  <Strong>strengths, interests </Strong>, and
+  <Strong> values</Strong>, and to develop a clear and actionable plan for their career path.</i>
+        </h3>
+    </div>
+
     <app-clickable-list [items]="['CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EDUCATION', 'CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EMPLOYMENT AGENCIES', 'CAREER GUIDANCE EDUCATION INSTITUTIONS REPORTING FORM']" (itemClick)="openModal($event)"></app-clickable-list>
     <app-cgfp-education-form *ngIf="isModalOpen" (formSubmit)="handleFormSubmit($event)"></app-cgfp-education-form>
     <app-cgfp-employment-agency-form *ngIf="isModalOpen" (formSubmit)="handleFormSubmit($event)"></app-cgfp-employment-agency-form>

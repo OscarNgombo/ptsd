@@ -1,108 +1,52 @@
-<div class="p-6 bg-white">
-    <!-- Step 1: Programme Information -->
-    <div *ngIf="currentStep === 1" class="bg-blue-100 p-6 mx-auto bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
-        <div class="container items-center t-4 px-4 pb-20  sm:block sm:p-0">
-            <h2 class="text-3xl font-bold mb-4">NATIONAL ONLINE WORK READINESS SKILLS TRAINING AND MENTORSHIP PROGRAMME</h2>
-            <p>Dear Applicant,<br><br>Thank you for expressing interest in the national online work readiness skills training & mentorship programme, which is delivered in partnership with State Department for ICT & Digital Economy - Ajira Digital Program.
-                The objective of the programme is to equip the young people with the requisite knowledge, skills, and attitudes for digital/online work to access decent work and earn an income from the Gig & Freelancing Economy.<br> <br> The training
-                will be virtually conducted for 5 Days, from <strong>4th</strong> to <strong>8th March 2024</strong> at <strong>8.00AM - 4.30 PM</strong> and will cover Cross-cutting, Basic & Advanced Modules of the Ajira Digital curriculum. The Basic
-                modules to be covered are Digital Marketing, Data Entry and Virtual Assistant. The Advanced Modules to be covered are AI for Graphic Design. The cross-cutting modules to be covered will include; Introduction to Digital & Digitally Enabled
-                work, Personal Digital Profile Creation, Online Work Safety & Data Protection, and Soft Skills. The training will be followed by a 4-Weeks flexible mentorship program which will entail 2 virtual sessions per week each on a 2 -hour duration
-                & chat-based mentorship. At the end of the mentorship program, there shall be a Job Linkages webinar & a graduation thereafter. <strong>(Note that certificates shall be awarded to trainees who fully complete the training and mentorship sessions)</strong>
-                <br><br> Interested candidates to apply for either Basic or Advanced modules training & mentorship from the list provided below.
-                <br><br> (This form is to collect relevant details related to the training and for the purposes of certification of the successful trainees of the National Online Work Readiness Skills Training & Mentorship Programme)
-            </p>
-            <div class="pl-4 pr-4 pt-6">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
-            </div>
+<section class="bg-white-50">
+    <div class="bg-white-100 shadow-lg rounded-lg grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div class="mr-auto place-self-center lg:col-span-7">
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Empowering Your Career Journey</h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">The Office of Career Services equips youth with skills and knowledge to thrive in the Gig Economy & secure fulfilling careers.</p>
+            <a routerLink="/stmp" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
+              Get started
+              <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </a>
+            <a routerLink="/stmp" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center border border-green-300 rounded-lg hover:bg-green-100 focus:ring-4 focus:ring-gray-100">
+              Skills Training Program
+          </a>
+        </div>
+        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex rounded-lg overflow-hidden shadow-2xl bg-white w-full">
+            <img src="../../assets/images/hero-image.jpg" alt="Hero Image" class="w-full h-64 object-cover object-center">
         </div>
     </div>
-
-    <!-- Step 2: Personal Details -->
-    <div *ngIf="currentStep === 2" class="mx-auto p-6 bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
-        <h2 class="text-3xl font-bold mb-4">PERSONAL DETAILS</h2>
-        <div class="container items-center t-4 px-4 pb-20  sm:block sm:p-0">
-            <p>(This information will help the Ministry to group the trainees for best delivery and also for certification)</p>
-            <br>
-            <form [formGroup]="personalDetailsForm" (ngSubmit)="goToStep3()">
-                <!-- Personal details form fields -->
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name (as per your National ID)</label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="name" required formControlName="name">
-                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.name.hasError('required')">Name cannot be empty</p>
-                </div>
-
-                <div class="mb-4">
-                    <label for="nationalID" class="block text-gray-700 text-sm font-bold mb-2">Your ID Number</label>
-                    <input type="number" id="nationalID" name="nationalID" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" maxlength=8 required formControlName="nationalID">
-                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">ID cannot be empty and has to be 8 digits long</p>
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="example@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="email" required formControlName="email">
-                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">Email cannot be empty</p>
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Your Phone Number (Format +254712345678)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+254712345678" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="tel" required formControlName="phone">
-                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">Phone cannot be empty and has to be 10 digits long</p>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input type="radio" id="male" name="gender" value="male" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="gender">
-                    <label for="male" class="text-gray-700 text-sm font-bold">Male</label>
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input type="radio" id="female" name="gender" value="female" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="gender">
-                    <label for="female" class="text-gray-700 text-sm font-bold">Female</label>
-                </div>
-                <div class="mb-4">
-                    <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" class="block w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" formControlName="dob">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="disability">Do you have a disability?</label>
-                    <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="disability" name="disability" formControlName="disability">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="county">
-                      Your County of Residence
-                    </label>
-                    <select [(ngModel)]="selectedCounty" class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="county" name="county" formControlName="county">
-                      <option value="" disabled selected>Select your county</option>
-                      <option *ngFor="let county of counties" [value]="county">{{ county }}</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="subCounty" class="block text-gray-700 text-sm font-bold mb-2">Your sub-county of Residence</label>
-                    <input type="text" id="subCounty" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required formControlName="subCounty" />
-                </div>
-                <div class="flex">
-                    <button class="mr-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
-                    <button [disabled]="!personalDetailsForm.valid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
-                </div>
-            </form>
+</section>
+<section class="bg-blue-50">
+    <!-- Value Proposition Sections -->
+    <div class="rounded-lg max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <h3 class="max-w-2xl mb-4 text-3xl font-bold tracking-tight leading-none md:text-3xl xl:text-4xl">Value Proposition Sections</h3>
+        <div class="mb-8">
+            <h3 class="font-bold text-lg mb-2">Skills Training & Mentorship</h3>
+            <p class="mb-4 py-2">The program aims to provide comprehensive training and mentorship, emphasizing online work readiness and access to the Gig Economy. Participants can benefit from practical skills development and guidance to secure meaningful opportunities.</p>
+            <h3 class="font-bold text-lg mb-2">National Online Employment Skill Development Programme (NOESDP)</h3>
+            <p class="mb-4 py-2">NOESDP offers a structured approach to skill development for employment, focusing on enhancing job skills and readying participants for the evolving job market. The program provides the opportunity to acquire in-demand skills for competitive
+                advantages in the job market.</p>
+            <h3 class="font-bold text-lg mb-2">National Tech-Industry Data (NTID)</h3>
+            <p class="mb-4 py-2">NTID aims to provide a platform for young innovators to access industry contacts and work-based learning opportunities. It offers insights into the tech industry and facilitates networking with potential employers, enhancing the prospects
+                of career development and real-world application skills.</p>
+            <a routerLink="/evaluation-form" class="text-white inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300">
+                Share Your Feedback
+                <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </a> <br>
+            <p class="text-sm text-gray-600 py-2">Your feedback is confidential and valuable for program enhancement.</p>
         </div>
     </div>
-
-    <!-- Step 3: Education Background -->
-    <div *ngIf="currentStep === 3">
-        <h2 class="text-3xl font-bold mb-4">EDUCATION BACKGROUND</h2>
-        <form>
-            <!-- Education background form fields -->
-            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
-            <button [disabled]="!isEducationBackgroundFormValid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
-        </form>
+</section>
+<Section class="bg-blue-50 py-5">
+    <div class="flex justify-center">
+        <!-- "Learn More" buttons for each program section -->
+        <button routerLink="/stmp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">Learn More - Skills Training & Mentorship program (STMP)</button>
+        <button routerLink="/noesdp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">Learn More - National Online Employment Skill Development Programme (NOESDP)</button>
+        <button routerLink="/ntid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">Learn More - National Tech-Industry Data (NTID)</button>
     </div>
 
-    <!-- Step 4: Confirmation and Submission -->
-    <div *ngIf="currentStep === 4">email,Validators.
-        <h2 class="text-3xl font-bold mb-4">CONFIRMATION AND SUBMISSION</h2>
-        <p>Thank you for your submission!</p>
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="submitForm()">Submit</button>
+    <!-- Prominent "Find Your Career Path" button leading to the career guidance services page -->
+    <div class="flex justify-center mt-4">
+        <a routerLink="/cgfp" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">Find Your Career Path</a>
     </div>
-
-</div>
+</Section>

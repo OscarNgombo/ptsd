@@ -1,0 +1,223 @@
+<div class="p-6 bg-white">
+    <!-- Step 1: Programme Information -->
+    <div *ngIf="currentStep === 1" class="bg-blue-100 p-6 mx-auto bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
+        <div class="container items-center t-4 px-4 pb-20  sm:block sm:p-0">
+            <h2 class="text-3xl font-bold mb-4">NATIONAL ONLINE WORK READINESS SKILLS TRAINING AND MENTORSHIP PROGRAMME</h2>
+            <p>Dear Applicant,<br><br>Thank you for expressing interest in the national online work readiness skills training & mentorship programme, which is delivered in partnership with State Department for ICT & Digital Economy - Ajira Digital Program.
+                The objective of the programme is to equip the young people with the requisite knowledge, skills, and attitudes for digital/online work to access decent work and earn an income from the Gig & Freelancing Economy.<br> <br> The training
+                will be virtually conducted for 5 Days, from <strong>4th</strong> to <strong>8th March 2024</strong> at <strong>8.00AM - 4.30 PM</strong> and will cover Cross-cutting, Basic & Advanced Modules of the Ajira Digital curriculum. The Basic
+                modules to be covered are Digital Marketing, Data Entry and Virtual Assistant. The Advanced Modules to be covered are AI for Graphic Design. The cross-cutting modules to be covered will include; Introduction to Digital & Digitally Enabled
+                work, Personal Digital Profile Creation, Online Work Safety & Data Protection, and Soft Skills. The training will be followed by a 4-Weeks flexible mentorship program which will entail 2 virtual sessions per week each on a 2 -hour duration
+                & chat-based mentorship. At the end of the mentorship program, there shall be a Job Linkages webinar & a graduation thereafter. <strong>(Note that certificates shall be awarded to trainees who fully complete the training and mentorship sessions)</strong>
+                <br><br> Interested candidates to apply for either Basic or Advanced modules training & mentorship from the list provided below.
+                <br><br> (This form is to collect relevant details related to the training and for the purposes of certification of the successful trainees of the National Online Work Readiness Skills Training & Mentorship Programme)
+            </p>
+            <div class="pl-4 pr-4 pt-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Personal Details -->
+    <div *ngIf="currentStep === 2" class="mx-auto p-6 bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
+        <h2 class="text-3xl font-bold mb-4">PERSONAL DETAILS</h2>
+        <div class="container items-center t-4 px-4 pb-20  sm:block sm:p-0">
+            <p>(This information will help the Ministry to group the trainees for best delivery and also for certification)</p>
+            <br>
+            <form [formGroup]="personalDetailsForm" (ngSubmit)="goToNextStep()">
+                <!-- Personal details form fields -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name (as per your National ID)</label>
+                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="name" required formControlName="name">
+                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.name.hasError('required')">Name cannot be empty</p>
+                </div>
+
+                <div class="mb-4">
+                    <label for="nationalID" class="block text-gray-700 text-sm font-bold mb-2">Your ID Number</label>
+                    <input type="number" id="nationalID" name="nationalID" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" maxlength=8 required formControlName="nationalID">
+                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">ID cannot be empty and has to be 8 digits long</p>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="email" required formControlName="email">
+                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">Email cannot be empty</p>
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Your Phone Number (Format +254712345678)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+254712345678" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" autocomplete="tel" required formControlName="phone">
+                    <p class="text-red-500 text-xs italic" *ngIf="personalDetailsForm.controls.nationalID.hasError('required')">Phone cannot be empty and has to be 10 digits long</p>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input type="radio" id="male" name="gender" value="male" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="gender">
+                    <label for="male" class="text-gray-700 text-sm font-bold">Male</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input type="radio" id="female" name="gender" value="female" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="gender">
+                    <label for="female" class="text-gray-700 text-sm font-bold">Female</label>
+                </div>
+                <div class="mb-4">
+                    <label for="dob" class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" class="block w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" formControlName="dob">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="disability">Do you have a disability?</label>
+                    <select class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="disability" name="disability" formControlName="disability">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="county">
+                    Your County of Residence
+                  </label>
+                    <select [(ngModel)]="selectedCounty" class="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-indigo-500" id="county" name="county" formControlName="county">
+                    <option value="" disabled selected>Select your county</option>
+                    <option *ngFor="let county of counties" [value]="county">{{ county }}</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                    <label for="subCounty" class="block text-gray-700 text-sm font-bold mb-2">Your sub-county of Residence</label>
+                    <input type="text" id="subCounty" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required formControlName="subCounty" />
+                </div>
+                <div class="flex">
+                    <button class="mr-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
+                    <button [disabled]="personalDetailsForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Step 3: Education Background -->
+    <div *ngIf="currentStep === 3" class="mx-auto p-6 bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
+        <h2 class="text-3xl font-bold mb-4">EDUCATION BACKGROUND</h2>
+        <div class="container items-center t-4 px-4 pb-20  sm:block sm:p-0">
+            <hr>
+            <form [formGroup]="educationDetailsForm" (ngSubmit)="goToNextStep()">
+                <br>
+                <fieldset>
+                    <legend class="text-lg font-bold mb-2">Highest Level of Education</legend>
+                    <!-- <label for="education" class="text-lg font-bold mb-2">Highest Level of Education:</label> -->
+                    <br>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="masters" name="education" value="Masters Degree" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="masters" class="text-sm">Masters Degree</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="bachelors" name="education" value="Bachelors Degree" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="bachelors" class="text-sm ">Bachelors Degree</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="diploma" name="education" value="Diploma" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="diploma" class="text-sm">Diploma</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="certificate" name="education" value="Certificate" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="certificate" class="text-sm">Certificate</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="formFour" name="education" value="Form Four" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="formFour" class="text-sm">Form Four</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="recognizePrior" name="education" value="Recognition of Prior Learning" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="recognizePrior" class="text-sm">Recognition of Prior Learning</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="others" name="education" value="Others" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="education">
+                        <label for="others" class="text-sm">Others</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="text-lg font-bold mb-2">Preferred Area of Training</legend>
+                    <!-- <label for="training" class="text-lg font-bold mb-2">Preferred Area of Training:</label> -->
+
+                    <div class="mb-4 flex items-center">
+                        <br>
+                        <input type="radio" id="basicModule" name="training" value="Basic Module" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="training">
+                        <label for="basicModule" class="text-sm">Basic Modules (Digital Marketing, Data Entry & Virtual Assistant)</label>
+                    </div>
+                    <div class="mb-4 flex items-center">
+                        <input type="radio" id="advancedModule" name="training" value="Advanced Module" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="training">
+                        <label for="advancedModule" class="text-sm ">Advanced Modules (AI for Graphic Design)</label>
+                    </div>
+                </fieldset>
+                <div class="mb-4">
+                    <label for="myFile" class="block mb-2 text-lg font-bold">Attach the following document as One PDF Document</label>
+                    <p>(Both Sides of the Copy of National Identity Card/Passport)</p>
+                    <br>
+                    <input type="file" id="fileInput" name="myFile" accept=".pdf" class="block w-auto text-sm text-indigo-600 border-gray-300 rounded-lg cursor-pointer dark:text-gray-400 focus:outline-none" formControlName="myFile" required>
+                </div>
+                <fieldset>
+                    <label for="accept" class="block mb-2 text-m font-bold">I accept the data I have provided in here to be shared with partners involved in this programme for purposes only relating to the course training within the boundaries of Kenya</label>
+                    <p>(If no, you might end up not being admitted for the course and also for certification as the course is administered by a third party partner in this programme)</p>
+                    <br>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="yes" name="accept" value="Yes" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="accept">
+                        <label for="yes" class="block ms-2  text-sm font-medium text-black-500">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="no" name="accept" value="No" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="accept">
+                        <label for="no" class="block ms-2  text-sm font-medium text-black-500">
+                        No
+                      </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="confirm" class="block mb-2 text-m font-bold">I confirm that all the details i have provided here in are correct and i am legally liable for any misinformation.</label>
+                    <br>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="yes" name="confirm" value="Yes" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="confirm">
+                        <label for="yes" class="block ms-2  text-sm font-medium text-black-500">
+                      Yes
+                    </label>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="no" name="confirm" value="No" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="confirm">
+                        <label for="no" class="block ms-2  text-sm font-medium text-black-500">
+                      No
+                    </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="agree" class="block mb-2 text-m font-bold">I agree that I am only eligible to receive a certificate after I have successfully completed the training & mentorship for the required period </label>
+                    <br>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="yes" name="agree" value="Yes" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="agree">
+                        <label for="yes" class="block ms-2  text-sm font-medium text-black-500">
+                    Yes
+                  </label>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <input type="radio" id="no" name="agree" value="No" class="mr-2 form-radio text-indigo-600 h-5 w-5" formControlName="agree">
+                        <label for="no" class="block ms-2  text-sm font-medium text-black-500">
+                    No
+                  </label>
+                    </div>
+                </fieldset>
+                <!-- <p class="text-red-500">The current status is: {{educationDetailsForm.status}}</p> -->
+                <div class="flex">
+                    <button class="mr-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
+                    <button [disabled]="educationDetailsForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="goToNextStep()">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Step 4: Confirmation and Submission -->
+    <div *ngIf="currentStep === 4" class="mx-auto p-6 bg-gray rounded-lg shadow-xl inset-0 bg-opacity-75 transition-opacity">
+        <h2 class="text-3xl font-bold mb-4">CONFIRMATION AND SUBMISSION</h2>
+        <br>
+        <div *ngIf="showMessage" class="congrats-message animate__animated animate__fadeIn">
+            Congratulations!
+            <p>Thank you for your submission!</p>
+        </div>
+        <br>
+        <div class="flex">
+            <button class="mr-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goToPreviousStep()">Back</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="submitForm()">Submit</button>
+        </div>
+    </div>
+
+</div>

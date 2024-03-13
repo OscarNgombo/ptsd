@@ -9,71 +9,74 @@
     <div
       class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
     >
-      <form class="p-6">
+      <form [formGroup]="cgfpEducation" (ngSubmit)="onFormSubmit()" class="p-6">
         <!-- Section 1: Career Guidance Focal Points Reporting Form - Education -->
         <h2 class="text-xl font-bold mb-4">
-          CAREER GUIDANCE FOCAL POINTS REPORTING FORM - EDUCATION
+          CAREER GUIDANCE EDUCATION INSTITUTIONS REPORTING FORM
         </h2>
         <p class="text-sm text-gray-700 mb-4">
-          The role of the Career Guidance Focal Point (CGFP) is to monitor and
-          report on the progress made in regard to the establishment and
-          operationalization of the Office of Career Services. To enable the
-          CGFP to report on this progress, the State Department for Labour and
-          Skills Development has automated the reporting form (see below).
-          Please use this form to fill in the quarterly and annual progress
-          reports for your Department/County/Agency.
+          The Office of Career Services is the department/unit that coordinates career guidance programmes in education and training institutions. The role of the Career Guidance Focal Point (CGFP) in the Office of Career Services (OCS) is to monitor and report on the progress made in regard to the establishment and operationalization of the Office of Career Services. To enable the CGFP of the OCS to report on this progress, the State Department for Labour and Skills Development has automated the reporting form (see below). Please use this form to fill in the quarterly and annual progress reports for your institution.
         </p>
         <hr />
         <!-- First Section -->
         <div class="mb-4">
           <label
-            for="input1"
+            for="institutionName"
             class="block text-gray-700 text-sm font-bold mb-2"
-            >Name of the Career Guidance Focal Point</label
+            >Name of the Institution</label
           >
           <input
             type="text"
-            id="input1"
+            id="institutionName"
+            name="institution"
+            formControlName="institution"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input2"
+            for="institutionSubCounty"
             class="block text-gray-700 text-sm font-bold mb-2"
-            >Region within which the Career Guidance Focal Point is
-            reporting</label
+            >Name of Institution sub-county</label
           >
           <input
             type="text"
-            id="input2"
+            id="institutionSubCounty"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+            name="institutionSubCounty"
+            formControlName="institutionSubCounty"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="email"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Institution Contact Person Email</label
+          >
+          <input
+            type="email"
+            name="email"
+            formControlName="email"
+            id="email"
+            autocomplete="email"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input3"
+            for="phone"
             class="block text-gray-700 text-sm font-bold mb-2"
-            >Career Guidance Focal Point Email</label
+            >The Institution's Contact Person Phone Number</label
           >
           <input
-            type="text"
-            id="input3"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
-        </div>
-        <div class="mb-4">
-          <label
-            for="input4"
-            class="block text-gray-700 text-sm font-bold mb-2"
-            >Career Guidance Focal Point Phone Number</label
-          >
-          <input
-            type="text"
-            id="input4"
+            type="number"
+            id="phone"
+            name="phone"
+            autocomplete="off"
+            formControlName="phone"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
@@ -96,74 +99,37 @@
               <tr *ngFor="let institution of institutions">
                 <td class="px-6 py-4">{{ institution.name }}</td>
                 <td class="px-6 py-4">
-                  <input
-                    type="radio"
-                    [id]="'public-' + institution.id"
-                    [name]="'selection-' + institution.id"
-                    [value]="'public-' + institution.id"
-                    class="form-radio text-indigo-600 h-5 w-5"
-                    (change)="showInputField(institution.id)"
-                  />
-                  <label [for]="'public-' + institution.id">Public</label>
+                  <input type="radio" name="otherInstitutions" [value]="institution.id" formControlName="otherInstitutions" class="form-radio text-indigo-600 h-5 w-5" (change)="showInputField(institution.id)" />
                 </td>
                 <td class="px-6 py-4">
-                  <input
-                    type="radio"
-                    [id]="'private-' + institution.id"
-                    [name]="'selection-' + institution.id"
-                    [value]="'private-' + institution.id"
-                    class="form-radio text-indigo-600 h-5 w-5"
-                    (change)="showInputField(institution.id)"
-                  />
-                  <label [for]="'private-' + institution.id">Private</label>
+                  <input type="radio" name="otherInstitutions" [value]="institution.id" formControlName="otherInstitutions" class="form-radio text-indigo-600 h-5 w-5" (change)="showInputField(institution.id)" />
                 </td>
               </tr>
               <tr *ngIf="selectedInstitutionId === 7">
                 <td colspan="3">
                   <input
-                  placeholder="Enter Other Institution information"
-                  type="text"
-                  id="other-institution"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
+                    placeholder="Enter Other Institution information"
+                    type="text"
+                    id="other-institution"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    formControlName="otherInstitutions"
+                  />
                 </td>
               </tr>
             </tbody>
+
           </table>
         </div>
         <br>
         <div class="mb-4">
-          <label
-            for="input5"
-            class="block text-gray-700 text-sm font-bold mb-2"
-            >Total No. of Institutions</label
-          >
-          <input
-            type="text"
-            id="input5"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
+          <label for="learners" class="block text-gray-700 text-sm font-bold mb-2">Total No. of learners</label>
+          <input type="number" id="learners" name="learners" formControlName="learners" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
         </div>
         <div class="mb-4">
           <label
-            for="input6"
+            for="careerEducators"
             class="block text-gray-700 text-sm font-bold mb-2"
-            >Total No. of Learners</label
-          >
-          <input
-            type="text"
-            id="input6"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
-        </div>
-        <div class="mb-4">
-          <label
-            for="input7"
-            class="block text-gray-700 text-sm font-bold mb-2"
-            >Total No. of Institutions</label
+            >Total No. of Career Educators</label
           >
           <p
             class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic"
@@ -173,106 +139,124 @@
           </p>
           <br />
           <input
-            type="text"
-            id="input7"
+            type="number"
+            id="careerEducators"
+            name="careerEducators"
+            formControlName="careerEducators"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input8"
+            for="careerCounsellors"
             class="block text-gray-700 text-sm font-bold mb-2"
             >Total No. of career counsellors</label
           >
           <input
-            type="text"
-            id="input8"
+            type="number"
+            id="careerCounsellors"
+            name="careerCounsellors"
+            formControlName="careerCounsellors"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input9"
+            for="infoSpecialists"
             class="block text-gray-700 text-sm font-bold mb-2"
             >Total No. of career information specialists</label
           >
           <input
-            type="text"
-            id="input9"
+            type="number"
+            id="infoSpecialists"
+            name="infoSpecialists"
+            formControlName="infoSpecialists"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input10"
+
             class="block text-gray-700 text-sm font-bold mb-2"
-            >No. of Office of Career Services (OCS) established</label
+            >Office of Career Services (OCS) established</label
           >
-          <input
-            type="text"
-            id="input10"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
+          <div class="flex">
+            <div class="flex items-center me-4">
+                <input id="ocsYes" type="radio" value="ocs" name="ocs" class="w-4 h-4 text-blue-600 bg-gray-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                <label for="ocsYes" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Yes</label>
+            </div>
+            <div class="flex items-center me-4">
+                <input id="ocsNo" type="radio" formControlName="ocs" value="ocs" name="ocs" class="w-4 h-4 text-blue-600 bg-black-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                <label for="ocsNo" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">No</label>
+            </div>
+        </div>
         </div>
         <div class="mb-4">
           <label
-            for="input11"
+            for="learnersAccessEducation"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of learners that accessed career education</label
           >
           <input
-            type="text"
-            id="input11"
+            type="number"
+            id="learnersAccessEducation"
+            name="learnersAccessEducation"
+            formControlName="learnersAccessEducation"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input12"
+            for="learnersAccess"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of learners that accessed career counselling services</label
           >
           <input
-            type="text"
-            id="input12"
+            type="number"
+            id="learnersAccess"
+            name="learnersCounsellingAccess"
+            formControlName="learnersCounsellingAccess"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input13"
+            for="learnersInfoAccess"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of learners that accessed career guidance information</label
           >
           <input
-            type="text"
-            id="input13"
+            type="number"
+            name="learnersInfoAccess"
+            id="learnersInfoAccess"
+            formControlName="learnersInfoAccess"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input14"
+            for="staffTrained"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of staff trained on career guidance</label
           >
           <input
-            type="text"
-            id="input14"
+            type="number"
+            id="staffTrained"
+            name="staffTrained"
+            formControlName="staffTrained"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input15"
+            for="maleLearners"
             class="block text-gray-700 text-sm font-bold mb-2"
             >Total No. of male learners</label
           >
@@ -284,15 +268,16 @@
           </p>
           <br />
           <input
-            type="text"
-            id="input15"
+            type="number"
+            id="maleLearners"
+            formControlName="maleLearners"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input16"
+            for="femaleLearners"
             class="block text-gray-700 text-sm font-bold mb-2"
             >Total No. of female learners</label
           >
@@ -304,15 +289,16 @@
           </p>
           <br />
           <input
-            type="text"
-            id="input16"
+            type="number"
+            id="femaleLearners"
+            formControlName="femaleLearners"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input17"
+            for="maleDisability"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of male learners with disabilities</label
           >
@@ -324,15 +310,16 @@
           </p>
           <br />
           <input
-            type="text"
-            id="input17"
+            type="number"
+            id="maleDisability"
+            formControlName="maleDisability"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div class="mb-4">
           <label
-            for="input18"
+            for="femaleDisability"
             class="block text-gray-700 text-sm font-bold mb-2"
             >No. of male learners with disabilities</label
           >
@@ -344,22 +331,25 @@
           </p>
           <br />
           <input
-            type="text"
-            id="input18"
+            type="number"
+            id="femaleDisability"
+            formControlName="femaleDisability"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <!-- Button outside the sections -->
-        <div class="text-center mb-4">
-          <button (click)="onFormSubmit()"
+
+      </form>
+      <p *ngIf="cgfpEducation.invalid" class="m-2 text-red-500 text-m italic">Confirm if Data above is well filled</p>
+      <div class="text-center mb-4">
+          <button [disabled]="cgfpEducation.invalid" (click)="onFormSubmit()"
             type="submit"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Save
           </button>
         </div>
-      </form>
     </div>
   </div>
 </div>

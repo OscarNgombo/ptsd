@@ -78,7 +78,10 @@ export class StmpComponent implements OnInit {
     // Initialization or data retrieval logic can be placed here
   }
 
+
   goToNextStep(): void {
+    this.isDetailsFormValid = true;
+    this.isEducationBackgroundFormValid = true;
     this.currentStep++;
   }
 
@@ -90,7 +93,7 @@ export class StmpComponent implements OnInit {
     this.showMessage = true;
     setTimeout(() => {
       this.showMessage = false;
-    }, 10000); // Hide the message after 3 seconds
+    }, 10000); // Hide the message after 10 seconds
   }
   personalDetailsForm = new FormGroup({
     name: new FormControl('', [Validators.required]),

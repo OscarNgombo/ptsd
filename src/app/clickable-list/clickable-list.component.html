@@ -1,5 +1,7 @@
 <div class="bg-white shadow-md rounded-md p-4">
     <ul>
-        <li *ngFor="let item of items; let i=index" (click)="onItemClick(i)" class="cursor-pointer bg-yellow-100 p-2 my-1 rounded-md">{{item}}</li>
+        <li *ngFor="let item of items;" class="cursor-pointer bg-yellow-100 p-2 my-1 rounded-md">
+            <a [routerLink]="[item.url]">{{item.name}}</a>
+        </li>
     </ul>
 </div>

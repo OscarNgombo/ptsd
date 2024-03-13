@@ -1,11 +1,15 @@
 <!-- <p>{{receivedString}}</p> -->
 <nav class="bg-white-300 w-full">
     <div class="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="flex flex-shrink-0 items-center" dir="ltr">
+        <div class="flex items-center relative" dir="ltr">
             <a href="/">
                 <img class="h-auto w-auto" src="assets/images/banner2.png" alt="logo" aria-label="PTSD" />
                 <br />
             </a>
+            <div class="flex items-center md:absolute md:insert-y-0 md:right-0" dir="ltr">
+                <a href="/login" class="text-gray-700 hover:text-blue-900 mr-4">Login</a>
+                <a href="/signup" class="text-gray-700 hover:text-blue-900">Signup</a>
+            </div>
         </div>
         <p class="navSpan">
             {{ receivedString }}
@@ -13,117 +17,31 @@
     </div>
     <div class="container mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
         <div class="hidden md:flex space-x-4 pt-5">
-            <a routerLink="/home" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium">Home</a
-      >
-      <a
-        routerLink="/stmp"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="Skills Training & Mentorship Programmes"
-        >STMP</a
-      >
-      <a
-        routerLink="/cgfp"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="Career Guidance Focal Point"
-        >CGFP</a
-      >
-      <a
-        routerLink="/cgcp"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="Career Guidance Contact Person"
-        >CGCP</a
-      >
-      <a
-        routerLink="/ntid"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="National Tech-Industry Database"
-        >NTID</a
-      >
-      <a
-        routerLink="/noesdp"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME"
-        >NOESDP</a
-      >
-      <a
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        >Support</a
-      >
-    </div>
-    <br />
-    <div class="md:hidden flex items-center">
-      <button
-        class="relative inline-flex items-center justify-center rounded-md p-2 menu-button"
-        (click)="toggleMenu()"
-      >
+            <a routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Home</a>
+            <a routerLink="/stmp" routerLinkActive="active-link" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
+            <a routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>
+            <a routerLink="/cgcp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Contact Person">CGCP</a>
+            <a routerLink="/ntid" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="National Tech-Industry Database">NTID</a>
+            <a routerLink="/noesdp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
+            <a class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
+        </div>
+        <br />
+        <div class="md:hidden flex items-center">
+            <button class="relative inline-flex items-center justify-center rounded-md p-2 menu-button" (click)="toggleMenu()">
         <!-- Mobile menu button-->
-        <svg
-          class="h-6 w-6 text-gray-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
+        <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+        </div>
+        <div class="bg-white py-2 bg-white hidden mobile-menu" [ngClass]="{ hidden: !isMenuOpen }">
+            <a routerLink="/home" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+            <a routerLink="/stmp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
+            <a routerLink="/cgfp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Focal Point">CGFP</a>
+            <a routerLink="/cgcp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Contact Person">CGCP</a>
+            <a routerLink="/ntid" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="National Tech-Industry Database">NTID</a>
+            <a routerLink="/noesdp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
+            <a href="#" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">SUPPORT</a>
+        </div>
     </div>
-    <div
-      class="bg-white py-2 bg-white hidden mobile-menu"
-      [ngClass]="{ hidden: !isMenuOpen }"
-    >
-      <a
-        routerLink="/home"
-        (click)="closeMenu()"
-        class="bg-blue-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-        aria-current="page"
-        >Home</a
-      >
-      <a
-        routerLink="/stmp"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        title="Skills Training & Mentorship Programmes"
-        >STMP</a
-      >
-      <a
-        routerLink="/cgfp"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        title="Career Guidance Focal Point"
-        >CGFP</a
-      >
-      <a
-        routerLink="/cgcp"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        title="Career Guidance Contact Person"
-        >CGCP</a
-      >
-      <a
-        routerLink="/ntid"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        title="National Tech-Industry Database"
-        >NTID</a
-      >
-      <a
-        routerLink="/noesdp"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-        title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME"
-        >NOESDP</a
-      >
-      <a
-        href="#"
-        (click)="closeMenu()"
-        class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-        >SUPPORT</a
-      >
-    </div>
-  </div>
 </nav>

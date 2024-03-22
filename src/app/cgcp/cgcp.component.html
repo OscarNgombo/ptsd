@@ -15,23 +15,22 @@
                 <!-- First Section -->
                 <fieldset>
                     <div class="mb-4">
-                        <label for="employmentAgency" class="block text-gray-700 text-sm font-bold mb-2">Name of the Employment Agency</label>
-                        <input type="text" id="employmentAgency" name="employmentAgency" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="employmentAgency" required />
+                        <label for="serviceName" class="block text-gray-700 text-sm font-bold mb-2">Name of the Employment Agency</label>
+                        <input type="text" id="serviceName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="name" required />
                     </div>
                     <div class="mb-4">
-                        <label for="subCounty" class="block text-gray-700 text-sm font-bold mb-2">Sub - County the employment agency is situated</label
->
-                        <input type="text" name="subCounty" formControlName="subCounty" id="subCounty" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <label for="Sub_County" class="block text-gray-700 text-sm font-bold mb-2">Sub - County the employment agency is situated</label>
+                        <input type="text" formControlName="sub_county" id="Sub_County" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="contactPersonEmail" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person email</label
 >
-                        <input type="email" formControlName="contactPersonEmail" name="contactPersonEmail" id="contactPersonEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="email" formControlName="contact_person_email" id="contactPersonEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="contactPersonPhone" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person phone number</label
 >
-                        <input type="tel" name="contactPersonPhone" formControlName="contactPersonPhone" id="contactPersonPhone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="tel" formControlName="contact_person_phone" id="contactPersonPhone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                 </fieldset>
                 <br>
@@ -45,32 +44,28 @@
                     </legend>
                     <div class="flex">
                         <div class="flex items-center me-4">
-                            <input id="publicType" formControlName="agencyType" type="radio" value="public" name="agencyType" class="w-4 h-4 text-blue-600 bg-black-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
-                            <label for="publicType" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Public</label>
+                            <input id="publicRadio" formControlName="agency_type" type="radio" value="Public" (change)="onAgencyTypeChange($event)" class="w-4 h-4 text-blue-600 bg-black-900 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                            <label for="publicRadio" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Public</label>
                         </div>
                         <div class="flex items-center me-4">
-                            <input id="privateType" type="radio" formControlName="agencyType" value="private" name="agencyType" class="w-4 h-4 text-blue-600 bg-black-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
-                            <label for="privateType" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Private</label>
+                            <input id="privateRadio" formControlName="agency_type" type="radio" value="Private" (change)="onAgencyTypeChange($event)" class="w-4 h-4 text-blue-600 bg-black-900 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                            <label for="publicRadio" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Private </label>
                         </div>
-
                     </div>
                     <br />
                     <div class="mb-4">
                         <label for="careerGuidanceNumber" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career guidance trainers</label
 >
-                        <input type="number" id="careerGuidanceNumber" name="careerGuidanceNumber" formControlName="careerGuidanceNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required
-                        />
+                        <input type="number" id="careerGuidanceNumber" formControlName="total_trainers" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="careerCounsellorsNumber" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career counsellors</label>
-                        <input type="number" name="careerCounsellorsNumber" formControlName="careerCounsellorsNumber" id="careerCounsellorsNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required />
+                        <input type="number" formControlName="total_counselors" id="careerCounsellorsNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="careerInformationSpecialists" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career information specialists</label
 >
-                        <input type="number" name="careerInformationSpecialists" formControlName="careerInformationSpecialists" id="careerInformationSpecialists" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required />
+                        <input type="number" formControlName="total_info_specialists" id="careerInformationSpecialists" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="overflow-x-auto">
                         <h3 class="block text-gray-700 text-sm font-bold mb-2">
@@ -78,36 +73,37 @@
                         </h3>
                         <div class="flex m-4">
                             <div class="flex items-center me-4">
-                                <input id="ocsYes" formControlName="ocs" type="radio" value="ocs" name="ocs" class="w-4 h-4 text-blue-600 bg-black-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
-                                <label for="ocsYes" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Yes</label>
+                                <input id="yesRadio" formControlName="established" type="radio" value="Yes" (change)="onOcsTypeChange($event)" class="w-4 h-4 text-blue-600 bg-black-900 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                                <label for="yesRadio" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Yes</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="ocsNo" type="radio" formControlName="ocs" value="ocs" name="ocs" class="w-4 h-4 text-blue-600 bg-black-100 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
-                                <label for="ocsYes" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">No</label>
+                                <input id="noRadio" formControlName="established" type="radio" value="No" (change)="onOcsTypeChange($event)" class="w-4 h-4 text-blue-600 bg-black-900 border-black-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-black-800 focus:ring-2 dark:bg-black-700 dark:border-black-600">
+                                <label for="noRadio" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">No </label>
                             </div>
+                            <!-- <div *ngIf="cgcpData.controls.established.errors && cgcpData.controls.established.errors['required']">
+                                Please enter your name.
+                            </div> -->
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="noCareerGuidanceAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance training</label
 >
-                        <input type="number" formControlName="noCareerGuidanceAccess" id="noCareerGuidanceAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="persons_accessed_training" id="noCareerGuidanceAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="noCareerCounsellingAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career counselling services</label
 >
-                        <input type="number" name="noCareerCounsellingAccess" formControlName="noCareerCounsellingAccess" id="noCareerCounsellingAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required />
+                        <input type="number" formControlName="persons_accessed_counseling" id="noCareerCounsellingAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="noCareerGuidanceInformation" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance information</label
 >
-                        <input type="number" formControlName="noCareerGuidanceInformation" name="noCareerGuidanceInformation" id="noCareerGuidanceInformation" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required />
+                        <input type="number" formControlName="persons_accessed_info" id="noCareerGuidanceInformation" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="noStaffTrainedCareerGuidance" class="block text-gray-700 text-sm font-bold mb-2">No. of staff trained on career guidance</label
 >
-                        <input type="number" formControlName="noStaffTrainedCareerGuidance" id="noStaffTrainedCareerGuidance" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="staff_trained" id="noStaffTrainedCareerGuidance" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="malePersonNo" class="block text-gray-700 text-sm font-bold mb-2">Total No. of male persons</label
@@ -116,7 +112,7 @@
                             (How many male learners that accessed different services on career guidance in your agency)
                         </p>
                         <br />
-                        <input type="number" formControlName="malePersonNo" id="malePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="male_persons" id="malePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="femalePersonNo" class="block text-gray-700 text-sm font-bold mb-2">
@@ -126,7 +122,7 @@ Total No. of female persons</label
                             (How many female learners that accessed different services on career guidance in your agency)
                         </p>
                         <br />
-                        <input type="number" formControlName="femalePersonNo" id="femalePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="female_persons" id="femalePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="maleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of male learners with disabilities</label
@@ -135,7 +131,7 @@ Total No. of female persons</label
                             (How many male persons with disabilities that accessed different services on career guidance in your agency)
                         </p>
                         <br />
-                        <input type="number" formControlName="maleDisabilityNo" id="maleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="male_disabilities" id="maleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
                     <div class="mb-4">
                         <label for="femaleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of female persons with disabilities</label
@@ -144,11 +140,12 @@ Total No. of female persons</label
                             (How many female learners with disabilities that accessed different services on career guidance in your agency)
                         </p>
                         <br />
-                        <input type="number" formControlName="femaleDisabilityNo" id="femaleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <input type="number" formControlName="female_disabilities" id="femaleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
                     </div>
 
                     <p class="m-2 text-red-500 text-xs italic" *ngIf="cgcpData.invalid"> Please Double check All fields ensure are not empty and correctly filled</p>
                 </fieldset>
+
                 <!-- Button outside the sections -->
                 <div class="text-center mb-4">
                     <button [disabled]="cgcpData.invalid" (click)="onFormSubmit()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save

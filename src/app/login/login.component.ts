@@ -4,6 +4,8 @@ import { CgfpService } from '../services/cgfp.service';
 import { User } from '../models/user.model';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { AuthGuard } from '../guards/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +13,12 @@ import { Router } from '@angular/router';
   imports: [ReactiveFormsModule,HttpClientModule,FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  providers: [CgfpService],
+  providers: [AuthService,AuthGuard,HttpClientModule],
 })
 
 export class LoginComponent {
 
-  constructor( private apiService: CgfpService,private router: Router){}
+  constructor( private apiService: AuthService,private router: Router){}
 
   ngOnInit():void{
   }
@@ -24,24 +26,19 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
+
       this.apiService.login(loginData as User).subscribe({
-        next: (status: number) => {
-          if (status === 200) {
-            alert('Login Successful');
-            this.loginForm.reset();
-            this.router.navigate(['/home']);
-          } else {
-            alert('Login Failed. User not found');
-          }
+        next: (response) => {
+          this.router.navigate(['/home']);
         },
-        error: (err) => {
-          alert('Something went wrong. Error details: ' + JSON.stringify(err));
-        }
+        error: (error) => {
+          console.log(error);
+          console.log('Login failed');
+        },
       });
+
     }
   }
-
-
 
 
   loginForm = new FormGroup({

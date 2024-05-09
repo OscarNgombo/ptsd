@@ -7,8 +7,9 @@
                 <br />
             </a>
             <div class="flex items-center md:absolute md:insert-y-0 md:right-0" dir="ltr">
-                <a href="/login" class="text-gray-700 hover:text-blue-900 mr-4">Login</a>
-                <a href="/signup" class="text-gray-700 hover:text-blue-900">Signup</a>
+                <a *ngIf="!authService.isLoggedIn()" href="/login" class="text-gray-700 hover:text-blue-900 mr-4">Login</a>
+                <a *ngIf="!authService.isLoggedIn()" href="/signup" class="text-gray-700 hover:text-blue-900">Signup</a>
+                <a *ngIf="authService.isLoggedIn" href="/logout" class="text-gray-700 hover:text-blue-900">logout</a>
             </div>
         </div>
         <p class="navSpan">

@@ -7,11 +7,16 @@ import { NoesdpComponent } from './noesdp/noesdp.component';
 import { StmpComponent } from './stmp/stmp.component';
 import { CgfpEducationFormComponent } from './cgfp-education-form/cgfp-education-form.component';
 import { CgfpEmploymentAgencyFormComponent } from './cgfp-employment-agency-form/cgfp-employment-agency-form.component';
-import { CgeiReportingFormComponent } from './cgei-reporting-form/cgei-reporting-form.component';
 import { CgfpFprEducationFormComponent } from './cgfp-fpr-education-form/cgfp-fpr-education-form.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LogoutComponent } from './logout/logout.component';
 
 export const routes: Routes = [
+  {
+    path: 'logout',
+    component: LogoutComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -19,10 +24,12 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'stmp',
     component: StmpComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cgfp',
@@ -39,16 +46,18 @@ export const routes: Routes = [
         component:CgfpEducationFormComponent ,
       },
     ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'cgcp',
     component: CgcpComponent,
+    canActivate: [AuthGuard]
   },
-  { path: 'ntid', component: NtidComponent },
-  { path: 'noesdp', component: NoesdpComponent },
+  { path: 'ntid', component: NtidComponent ,canActivate: [AuthGuard]},
+  { path: 'noesdp', component: NoesdpComponent ,canActivate: [AuthGuard]},
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
 ];

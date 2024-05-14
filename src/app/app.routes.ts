@@ -10,51 +10,53 @@ import { CgfpEmploymentAgencyFormComponent } from './cgfp-employment-agency-form
 import { CgfpFprEducationFormComponent } from './cgfp-fpr-education-form/cgfp-fpr-education-form.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
-import { LogoutComponent } from './logout/logout.component';
+import { SignupComponent } from './signup/signup.component';
+import { EmploymentAgenciesComponent } from './employment-agencies/employment-agencies.component';
 
 export const routes: Routes = [
-  {
-    path: 'logout',
-    component: LogoutComponent,
-  },
-  {
+{
     path: 'login',
     component: LoginComponent,
   },
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'stmp',
     component: StmpComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'cgfp',
     component: CGFPComponent,
     children: [
-      { path: 'cgfp_education_reporting_form',
-      component: CgfpFprEducationFormComponent },
+      {
+        path: 'cgfp_education_reporting_form',
+        component: CgfpFprEducationFormComponent,
+      },
       {
         path: 'cgfp_employment_agencies_form',
         component: CgfpEmploymentAgencyFormComponent,
       },
       {
         path: 'cgfp_institution_reporting_form',
-        component:CgfpEducationFormComponent ,
+        component: CgfpEducationFormComponent,
       },
     ],
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'cgcp',
     component: CgcpComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
-  { path: 'ntid', component: NtidComponent ,canActivate: [AuthGuard]},
-  { path: 'noesdp', component: NoesdpComponent ,canActivate: [AuthGuard]},
+{path:'signup',component:SignupComponent},
+  { path: 'ntid', component: NtidComponent, canActivate: [AuthGuard] },
+  { path: 'noesdp', component: NoesdpComponent, canActivate: [AuthGuard] },
+  {path:'registered_agencies',component:EmploymentAgenciesComponent,canActivate:[AuthGuard]},
+
   {
     path: '',
     redirectTo: 'home',

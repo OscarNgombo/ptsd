@@ -1,23 +1,41 @@
-<div class="container">
-    <h1>Hi Welcome Back</h1>
-    <h3>Login Here</h3>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="username">Username</label>
-            <input id="username" formControlName="username" required type="text" autocomplete="false">
-            <label for="password">Password</label>
-            <input id="password" formControlName="password" type="password" autocomplete="false" required>
+<div class="container mx-auto">
+    <section class="bg-gray-50 dark:bg-gray-900 py-8 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 mx-auto">
+            <h1 class="md:text-3xl text-center text-2xl font-bold mt-8 mb-4 leading-tight tracking-tight text-gray-900 dark:text-white">Hello {{getGreeting()}}! <br> Welcome Back</h1>
+            <h3 class="text-xl ml-8 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Login Here</h3>
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">
+                    <div>
+                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                        <input id="username" formControlName="username" required type="text" autocomplete="false" class="block w-full px-4 py-3 rounded border-gray-300 focus:border-indigo-500 focus:outline-none focus:ring focus:ring-indigo-200" />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input id="password" formControlName="password" type="password" autocomplete="false" required class="block w-full px-4 py-3 rounded border-gray-300 focus:border-indigo-500 focus:outline-none focus:ring focus:ring-indigo-200" />
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                    required="">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</a>
+                    </div>
+                    <!-- <div>
+                        <p class="text-red-500" *ngIf="!loginForm.controls.password">Please ensure the password and username are correctly filled</p>
+                    </div> -->
+                    <div class="text-center mb-4">
+                        <button [disabled]="loginForm.invalid" (click)="onSubmit()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded focus:outline-none focus:shadow-outline">Sign in</button>
+                    </div>
+                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                        Don’t have an account yet? <a routerLink="/signup" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                    </p>
+                </form>
+            </div>
         </div>
-        <span>Don’t have an account?
-      <a routerLink="/signUp">signUp</a></span><span><a routerLink="/logout">signUp</a></span>
-        <div>
-            <p>{{loginForm.status}}</p>
-        </div>
-        <div class="text-center mb-4">
-            <button [disabled]="loginForm.invalid" (click)="onSubmit" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Login
-      </button>
-
-
-        </div>
-    </form>
+    </section>
 </div>

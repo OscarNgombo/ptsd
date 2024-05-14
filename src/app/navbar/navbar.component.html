@@ -3,13 +3,13 @@
     <div class="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="flex items-center relative" dir="ltr">
             <a href="/">
-                <img class="h-auto w-auto" src="assets/images/banner2.png" alt="logo" aria-label="PTSD" />
-                <br />
+                <img class="mb-2 h-auto w-auto" src="assets/images/banner2.png" alt="logo" aria-label="PTSD" />
             </a>
             <div class="flex items-center md:absolute md:insert-y-0 md:right-0" dir="ltr">
                 <a *ngIf="!authService.isLoggedIn()" href="/login" class="text-gray-700 hover:text-blue-900 mr-4">Login</a>
                 <a *ngIf="!authService.isLoggedIn()" href="/signup" class="text-gray-700 hover:text-blue-900">Signup</a>
-                <a *ngIf="authService.isLoggedIn" href="/logout" class="text-gray-700 hover:text-blue-900">logout</a>
+                <span class="pr-2"><p *ngIf="authService.isLoggedIn()" class="text-blue-700 hover:text-gray-900">{{getUser()?.email}}</p></span>
+                <a *ngIf="authService.isLoggedIn()" (click)="logout()" class="text-gray-700 hover:text-blue-900">logout</a>
             </div>
         </div>
         <p class="navSpan">
@@ -18,13 +18,14 @@
     </div>
     <div class="container mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
         <div class="hidden md:flex space-x-4 pt-5">
-            <a routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Home</a>
-            <a routerLink="/stmp" routerLinkActive="active-link" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
-            <a routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>
-            <a routerLink="/cgcp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Contact Person">CGCP</a>
-            <a routerLink="/ntid" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="National Tech-Industry Database">NTID</a>
-            <a routerLink="/noesdp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
-            <a class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==true" routerLink="/registered_agencies" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Agency</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Home</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/stmp" routerLinkActive="active-link" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgcp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Contact Person">CGCP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/ntid" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="National Tech-Industry Database">NTID</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/noesdp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
         </div>
         <br />
         <div class="md:hidden flex items-center">
@@ -36,13 +37,14 @@
       </button>
         </div>
         <div class="bg-white py-2 bg-white hidden mobile-menu" [ngClass]="{ hidden: !isMenuOpen }">
-            <a routerLink="/home" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
-            <a routerLink="/stmp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
-            <a routerLink="/cgfp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Focal Point">CGFP</a>
-            <a routerLink="/cgcp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Contact Person">CGCP</a>
-            <a routerLink="/ntid" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="National Tech-Industry Database">NTID</a>
-            <a routerLink="/noesdp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
-            <a href="#" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">SUPPORT</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==true" routerLink="/registered_agencies" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Agency</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/home" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/stmp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgfp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Focal Point">CGFP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgcp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="Career Guidance Contact Person">CGCP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/ntid" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium" title="National Tech-Industry Database">NTID</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/noesdp" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" href="#" (click)="closeMenu()" class="text-gray-500 hover:bg-blue-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium">SUPPORT</a>
         </div>
     </div>
 </nav>

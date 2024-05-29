@@ -9,18 +9,10 @@ export class AuthGuard {
   user = this.authService.getUserDetails();
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
-      if (this.user?.is_staff === false) {
-          return true;
-      }
-      else{
-        this.router.navigate(['/registered_agencies']);
-        return true;
-      }
+    return true;
   } else {
       this.router.navigate(['/login']);
       return false;
     }
   }
-
-
 }

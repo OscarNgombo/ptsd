@@ -1,1 +1,64 @@
-<p>employment-agencies works!</p>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
+    <h1 class="text-2xl font-bold mb-4">Registered Career Guidance Employment Agencies Details</h1>
+
+    <!-- Total Count of Agencies -->
+    <div class="mb-4">
+        <p class="text-lg font-semibold">Total Number of Agencies: {{ agencies.length }}</p>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="downloadCSV()">Download CSV</button>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">ID</th>
+                    <th scope="col" class="px-6 py-3">Name</th>
+                    <th scope="col" class="px-6 py-3">Sub County</th>
+                    <th scope="col" class="px-6 py-3">Contact Person Email</th>
+                    <th scope="col" class="px-6 py-3">Contact Person Phone</th>
+                    <th scope="col" class="px-6 py-3">Agency Type</th>
+                    <th scope="col" class="px-6 py-3">Total Trainers</th>
+                    <th scope="col" class="px-6 py-3">Total Counselors</th>
+                    <th scope="col" class="px-6 py-3">Total Info Specialists</th>
+                    <th scope="col" class="px-6 py-3">Established</th>
+                    <th scope="col" class="px-6 py-3">Persons Accessed Training</th>
+                    <th scope="col" class="px-6 py-3">Persons Accessed Counseling</th>
+                    <th scope="col" class="px-6 py-3">Persons Accessed Info</th>
+                    <th scope="col" class="px-6 py-3">Staff Trained</th>
+                    <th scope="col" class="px-6 py-3">Male Persons</th>
+                    <th scope="col" class="px-6 py-3">Female Persons</th>
+                    <th scope="col" class="px-6 py-3">Male Disabilities</th>
+                    <th scope="col" class="px-6 py-3">Female Disabilities</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="agencies">
+                    <tr *ngFor="let agency of agencies" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="px-6 py-4">{{agency.id}}</td>
+                        <td class="px-6 py-4">{{ agency.name }}</td>
+                        <td class="px-6 py-4">{{ agency.sub_county }}</td>
+                        <td class="px-6 py-4">{{ agency.contact_person_email }}</td>
+                        <td class="px-6 py-4">{{ agency.contact_person_phone }}</td>
+                        <td class="px-6 py-4">{{ agency.agency_type }}</td>
+                        <td class="px-6 py-4">{{ agency.total_trainers }}</td>
+                        <td class="px-6 py-4">{{ agency.total_counselors }}</td>
+                        <td class="px-6 py-4">{{ agency.total_info_specialists }}</td>
+                        <td class="px-6 py-4">{{ agency.established }}</td>
+                        <td class="px-6 py-4">{{ agency.persons_accessed_training }}</td>
+                        <td class="px-6 py-4">{{ agency.persons_accessed_counseling }}</td>
+                        <td class="px-6 py-4">{{ agency.persons_accessed_info }}</td>
+                        <td class="px-6 py-4">{{ agency.staff_trained }}</td>
+                        <td class="px-6 py-4">{{ agency.male_persons }}</td>
+                        <td class="px-6 py-4">{{ agency.female_persons }}</td>
+                        <td class="px-6 py-4">{{ agency.male_disabilities }}</td>
+                        <td class="px-6 py-4">{{ agency.female_disabilities }}</td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="!agencies">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500" colspan="2">Loading...</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

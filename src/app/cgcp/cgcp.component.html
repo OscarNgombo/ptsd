@@ -17,20 +17,30 @@
                     <div class="mb-4">
                         <label for="serviceName" class="block text-gray-700 text-sm font-bold mb-2">Name of the Employment Agency</label>
                         <input type="text" id="serviceName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="name" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.name.invalid && (cgcpData.controls.name.dirty || cgcpData.controls.name.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label for="Sub_County" class="block text-gray-700 text-sm font-bold mb-2">Sub - County the employment agency is situated</label>
                         <input type="text" formControlName="sub_county" id="Sub_County" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.sub_county.invalid && (cgcpData.controls.sub_county.dirty || cgcpData.controls.sub_county.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="contactPersonEmail" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person email</label
->
+                        <label for="contactPersonEmail" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person email</label>
                         <input type="email" formControlName="contact_person_email" id="contactPersonEmail" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.contact_person_email.invalid && (cgcpData.controls.contact_person_email.dirty || cgcpData.controls.contact_person_email.touched)">
+                            <p class="error-message">Email is Required and has to be valid</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="contactPersonPhone" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person phone number</label
->
+                        <label for="contactPersonPhone" class="block text-gray-700 text-sm font-bold mb-2">The employment agency contact person phone number</label>
                         <input type="tel" formControlName="contact_person_phone" id="contactPersonPhone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.contact_person_phone.invalid && (cgcpData.controls.contact_person_phone.dirty || cgcpData.controls.contact_person_phone.touched)">
+                            <p class="error-message">10 digit phone number is Required</p>
+                        </div>
                     </div>
                 </fieldset>
                 <br>
@@ -52,20 +62,30 @@
                             <label for="publicRadio" class="ms-2 text-sm font-medium text-black-900 dark:text-black-300">Private </label>
                         </div>
                     </div>
+                    <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.agency_type.invalid && (cgcpData.controls.agency_type.dirty || cgcpData.controls.agency_type.touched)">
+                        <p class="error-message">Required</p>
+                    </div>
                     <br />
                     <div class="mb-4">
-                        <label for="careerGuidanceNumber" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career guidance trainers</label
->
+                        <label for="careerGuidanceNumber" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career guidance trainers</label>
                         <input type="number" id="careerGuidanceNumber" formControlName="total_trainers" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.total_trainers.invalid && (cgcpData.controls.total_trainers.dirty || cgcpData.controls.total_trainers.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label for="careerCounsellorsNumber" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career counsellors</label>
                         <input type="number" formControlName="total_counselors" id="careerCounsellorsNumber" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.total_counselors.invalid && (cgcpData.controls.total_counselors.dirty || cgcpData.controls.total_counselors.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="careerInformationSpecialists" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career information specialists</label
->
+                        <label for="careerInformationSpecialists" class="block text-gray-700 text-sm font-bold mb-2">Total No. of career information specialists</label>
                         <input type="number" formControlName="total_info_specialists" id="careerInformationSpecialists" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.total_info_specialists.invalid && (cgcpData.controls.total_info_specialists.dirty || cgcpData.controls.total_info_specialists.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="overflow-x-auto">
                         <h3 class="block text-gray-700 text-sm font-bold mb-2">
@@ -86,69 +106,82 @@
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label for="noCareerGuidanceAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance training</label
->
+                        <label for="noCareerGuidanceAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance training</label>
                         <input type="number" formControlName="persons_accessed_training" id="noCareerGuidanceAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.persons_accessed_training.invalid && (cgcpData.controls.persons_accessed_training.dirty || cgcpData.controls.persons_accessed_training.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="noCareerCounsellingAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career counselling services</label
->
+                        <label for="noCareerCounsellingAccess" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career counselling services</label>
                         <input type="number" formControlName="persons_accessed_counseling" id="noCareerCounsellingAccess" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.persons_accessed_counseling.invalid && (cgcpData.controls.persons_accessed_counseling.dirty || cgcpData.controls.persons_accessed_counseling.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="noCareerGuidanceInformation" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance information</label
->
+                        <label for="noCareerGuidanceInformation" class="block text-gray-700 text-sm font-bold mb-2">No. of persons that accessed career guidance information</label>
                         <input type="number" formControlName="persons_accessed_info" id="noCareerGuidanceInformation" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.persons_accessed_info.invalid && (cgcpData.controls.persons_accessed_info.dirty || cgcpData.controls.persons_accessed_info.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="noStaffTrainedCareerGuidance" class="block text-gray-700 text-sm font-bold mb-2">No. of staff trained on career guidance</label
->
+                        <label for="noStaffTrainedCareerGuidance" class="block text-gray-700 text-sm font-bold mb-2">No. of staff trained on career guidance</label>
                         <input type="number" formControlName="staff_trained" id="noStaffTrainedCareerGuidance" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.staff_trained.invalid && (cgcpData.controls.staff_trained.dirty || cgcpData.controls.staff_trained.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="malePersonNo" class="block text-gray-700 text-sm font-bold mb-2">Total No. of male persons</label
->
+                        <label for="malePersonNo" class="block text-gray-700 text-sm font-bold mb-2">Total No. of male persons</label>
                         <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
                             (How many male learners that accessed different services on career guidance in your agency)
                         </p>
                         <br />
                         <input type="number" formControlName="male_persons" id="malePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.male_persons.invalid && (cgcpData.controls.male_persons.dirty || cgcpData.controls.male_persons.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="femalePersonNo" class="block text-gray-700 text-sm font-bold mb-2">
-Total No. of female persons</label
->
+                        <label for="femalePersonNo" class="block text-gray-700 text-sm font-bold mb-2">Total No. of female persons</label>
                         <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
                             (How many female learners that accessed different services on career guidance in your agency)
                         </p>
                         <br />
                         <input type="number" formControlName="female_persons" id="femalePersonNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.female_persons.invalid && (cgcpData.controls.female_persons.dirty || cgcpData.controls.female_persons.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="maleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of male learners with disabilities</label
->
+                        <label for="maleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of male learners with disabilities</label>
                         <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
                             (How many male persons with disabilities that accessed different services on career guidance in your agency)
                         </p>
                         <br />
                         <input type="number" formControlName="male_disabilities" id="maleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.male_disabilities.invalid && (cgcpData.controls.male_disabilities.dirty || cgcpData.controls.male_disabilities.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="femaleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of female persons with disabilities</label
->
+                        <label for="femaleDisabilityNo" class="block text-gray-700 text-sm font-bold mb-2">No. of female persons with disabilities</label>
                         <p class="mt-4 p-2 border-2 border-gray-300 rounded-md bg-gray-100 text-gray-700 italic">
                             (How many female learners with disabilities that accessed different services on career guidance in your agency)
                         </p>
                         <br />
                         <input type="number" formControlName="female_disabilities" id="femaleDisabilityNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                        <div class="m-2 text-red-500 text-s italic" *ngIf="cgcpData.controls.female_disabilities.invalid && (cgcpData.controls.female_disabilities.dirty || cgcpData.controls.female_disabilities.touched)">
+                            <p class="error-message">Required</p>
+                        </div>
                     </div>
-
-                    <p class="m-2 text-red-500 text-xs italic" *ngIf="cgcpData.invalid"> Please Double check All fields ensure are not empty and correctly filled</p>
                 </fieldset>
 
                 <!-- Button outside the sections -->
                 <div class="text-center mb-4">
-                    <button [disabled]="cgcpData.invalid" (click)="onFormSubmit()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save
+                    <button [disabled]="cgcpData.invalid" routerLink="/home" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit
           </button>
                 </div>
             </form>

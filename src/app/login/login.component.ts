@@ -44,7 +44,11 @@ export class LoginComponent {
 
       this.apiService.login(loginData as User).subscribe({
         next: (response) => {
-          this.router.navigate(['/home']);
+          if (response.body.user.is_staff==true) {
+            this.router.navigate(['/registered_agencies']);
+          } else {
+            this.router.navigate(['/home']);
+          }
         },
         error: (error) => {
           console.log(error);

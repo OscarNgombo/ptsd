@@ -49,7 +49,7 @@ export class AuthService {
 
           // Extract user details from the response
           const user = (response.body as any)?.user;
-          console.log('User details:', user);
+          // console.log('User details:', user);
 
           // store the user details in local storage
           localStorage.setItem('user', JSON.stringify(user));

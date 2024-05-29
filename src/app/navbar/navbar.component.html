@@ -18,7 +18,7 @@
     </div>
     <div class="container mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
         <div class="hidden md:flex space-x-4 pt-5">
-            <a *ngIf="authService.getUserDetails()?.is_staff==true" routerLink="/registered_agencies" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Agency</a>
+            <a *ngIf="authService.isLoggedIn() && authService.getUserDetails()?.is_staff==true" routerLink="/registered_agencies" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Agency</a>
             <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Home</a>
             <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/stmp" routerLinkActive="active-link" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
             <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>

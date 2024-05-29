@@ -10,18 +10,19 @@ import {
 import { CgfpService } from '../services/cgfp.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Cgfp } from '../models/cgfp.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cgcp',
   standalone: true,
-  imports: [NgIf, NgFor, ReactiveFormsModule, HttpClientModule, FormsModule],
+  imports: [NgIf, NgFor, RouterLink, ReactiveFormsModule, HttpClientModule, FormsModule],
   templateUrl: './cgcp.component.html',
   styleUrl: './cgcp.component.css',
   providers: [CgfpService],
 })
 export class CgcpComponent {
   showMessage: boolean = false;
-  router: any;
+
 
   constructor(private apiService: CgfpService) {}
 
@@ -31,20 +32,20 @@ export class CgcpComponent {
     if (this.cgcpData.valid) {
       this.showMessage = true;
       this.apiService.create(this.cgcpData.value as Cgfp).subscribe((data) => {
-        console.log(data);
+        // console.log(data);
         this.cgcpData = data;
       });
       setTimeout(() => {
         this.showMessage = false;
       }, 10000);
-      this.router.navigate(['/home']);
+    } else {
+      console.log("Form is invalid");
     }
   }
   onAgencyTypeChange(event: any) {
     const agencyType = this.cgcpData.get('agency_type');
     if (agencyType) {
       agencyType.setValue(event.target.value);
-      console.log(agencyType.value);
     }
   }
 
@@ -52,7 +53,6 @@ export class CgcpComponent {
     const ocsType = this.cgcpData.get('established');
     if (ocsType) {
       ocsType.setValue(event.target.value);
-      console.log(ocsType.value);
     }
   }
 

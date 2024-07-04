@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule,Validators } from '@angular/forms';
-import { User } from '../models/user.model';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AuthGuard } from '../guards/auth.guard';
 import { NgIf } from '@angular/common';
+import { User } from '../intreface/user';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ import { NgIf } from '@angular/common';
 })
 
 export class LoginComponent {
+   loginError: boolean = false;
 
   constructor( private apiService: AuthService,private router: Router){}
 
@@ -44,20 +45,23 @@ export class LoginComponent {
 
       this.apiService.login(loginData as User).subscribe({
         next: (response) => {
-          if (response.body.user.is_staff==true) {
+          // Assuming the necessary data is available in the response
+          const userIsStaff = (response.user && response.user.is_staff) || false; // example assumption, please adjust as per your actual response structure
+
+          if (userIsStaff) {
             this.router.navigate(['/registered_agencies']);
           } else {
             this.router.navigate(['/home']);
           }
         },
         error: (error) => {
-          console.log(error);
-          console.log('Login failed');
+          console.log("Failed to login");
+          this.loginError = true;
         },
       });
-
     }
   }
+
 
 
   loginForm = new FormGroup({

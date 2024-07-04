@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Cgfp } from '../models/cgfp.model';
-import { User } from '../models/user.model';
+import { User } from '../intreface/user';
 
 
 

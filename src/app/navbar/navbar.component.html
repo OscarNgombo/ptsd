@@ -19,13 +19,21 @@
     <div class="container mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
         <div class="hidden md:flex space-x-4 pt-5">
             <a *ngIf="authService.isLoggedIn() && authService.getUserDetails()?.is_staff==true" routerLink="/registered_agencies" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Agency</a>
-            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">Home</a>
-            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/stmp" routerLinkActive="active-link" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Skills Training & Mentorship Programmes">STMP</a>
-            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/home" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Home">HOME</a>
+            <div *ngIf="authService.getUserDetails()?.is_staff == false" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                <label for="service">CHOOSE REGISTERED SERVICE: </label>
+                <select (change)="getServiceValue($event)" name="service" id="service" class="hover:text-black bg-gray-300 rounded-md px-3 text-sm font-medium">
+                  <option value="" class="p-2"></option>
+                <option *ngFor="let service of getAccessibleServices()" [value]="service.service">
+                  {{ service.service }}
+                </option>
+              </select>
+            </div>
+            <!-- <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgfp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Focal Point">CGFP</a>
             <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/cgcp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="Career Guidance Contact Person">CGCP</a>
             <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/ntid" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="National Tech-Industry Database">NTID</a>
-            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/noesdp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a>
-            <a *ngIf="authService.getUserDetails()?.is_staff==false" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" routerLink="/noesdp" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium" title="NATIONAL ONLINE EMPLOYMENT SKILL DEVELOPMENT PROGRAMME">NOESDP</a> -->
+            <a *ngIf="authService.getUserDetails()?.is_staff==false" class="text-gray-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium">SUPPORT</a>
         </div>
         <br />
         <div class="md:hidden flex items-center">
